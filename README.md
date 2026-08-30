@@ -1,59 +1,92 @@
-# Software Engineering Portfolio
+# Luís Trivinho — Engineering Portfolio
 
-I'm **Luís Trivinho**, a Fullstack Software Engineer focused on production SaaS applications, payments, API integrations and transactional systems.
+An international-facing software engineering portfolio focused on SaaS, payments, APIs, transactional systems, web and mobile work. The interface itself is treated as an engineering artifact: fast, accessible, content-led and intentionally free of external runtime dependencies.
 
-This repository presents selected engineering case studies from real-world work. Proprietary code, credentials, internal infrastructure and sensitive business details are intentionally excluded.
+## Stack
 
-## Core stack
+- Next.js 16.3 with App Router and React Server Components
+- React 19 and strict TypeScript
+- Tailwind CSS 4.3 with design tokens in CSS variables
+- Motion for React with reduced-motion support
+- Repository-owned Markdown case studies
+- pnpm, ESLint and Prettier
 
-**Frontend:** React, Next.js, TypeScript, JavaScript, React Native  
-**Backend:** Node.js, PHP, Laravel, Python  
-**Data:** PostgreSQL, MySQL, SQL  
-**Integrations:** REST APIs, webhooks, payment gateways, authentication, third-party services  
-**Engineering:** transactional flows, production debugging, system integration, CI/CD, cloud deployments
+## Architecture
 
-## Selected case studies
+The homepage is assembled from focused section components. Profile, navigation, project metadata and verified experience themes live in typed data modules. Long-form case studies remain Markdown and are read on the server during static generation. Client Components are limited to theme persistence, mobile navigation, the command palette, reveal motion and the transaction visualization.
 
-### 1. Payments & Transactional Systems
+```text
+src/
+├── app/                    # routes, metadata, sitemap, robots and OG image
+├── components/             # layout, sections, UI, work and visualizations
+├── content/case-studies/   # long-form Markdown content
+├── data/                   # typed profile, cases and experience data
+└── lib/                    # server-side content loading
+```
 
-Design and maintenance of production payment flows involving checkout, gateways, webhooks, antifraud integrations, financial state management and multi-currency scenarios.
+## Local setup
 
-[Read the case study](./case-studies/payments-transactional-systems.md)
+```bash
+pnpm install
+pnpm dev
+```
 
-### 2. Retorna
+Open [http://localhost:3000](http://localhost:3000).
 
-End-to-end development of a SaaS product and service marketplace, covering authentication, product flows, frontend, backend, database integration and production deployment.
+For deployment, set `NEXT_PUBLIC_SITE_URL` to the final public origin so canonical URLs, the sitemap and robots metadata use the correct domain. A non-secret example is included in `.env.example`.
 
-[Read the case study](./case-studies/retorna.md)
+## Scripts
 
-### 3. Mobile POS & Enterprise Integrations
+```bash
+pnpm dev
+pnpm build
+pnpm start
+pnpm lint
+pnpm typecheck
+pnpm format
+pnpm format:check
+```
 
-Engineering work around mobile point-of-sale flows, payment integrations, legacy systems, APIs and fault-tolerant transactional behavior.
+## Content
 
-[Read the case study](./case-studies/mobile-pos-enterprise-integrations.md)
+Case-study metadata is defined in `src/data/cases.ts`; long-form content is stored under `src/content/case-studies`, with Portuguese translations in `src/content/case-studies/pt-br`. Career history, education, language labels, archive metadata and localized UI copy are centralized in `src/data/portfolio.ts`. Professional facts are intentionally limited to verified résumé and repository sources. Private URLs, client data and unverified metrics are not published.
 
-## Engineering principles
+## Languages
 
-- Prefer simple architecture that can evolve with the product.
-- Treat integrations and payment flows as explicit state machines.
-- Design APIs and webhooks for retries, failures and idempotency.
-- Keep business rules readable and close to their domain.
-- Optimize for maintainability before premature abstraction.
-- Debug production issues from evidence, not assumptions.
+English is the primary public version at `/`. The fully localized Brazilian Portuguese version lives at `/pt-br`. The language selector preserves the equivalent route between locales, and each page publishes `hreflang` alternates and locale-specific metadata.
 
-## About this portfolio
+## Résumés
 
-The goal of these case studies is to demonstrate how I approach software engineering problems, not to reproduce proprietary systems.
+The application checks for final PDFs at runtime before rendering external résumé links:
 
-Each case focuses on:
+```text
+public/resume/Luis-Trivinho-Resume-EN.pdf
+public/resume/Luis-Trivinho-Curriculo-PTBR.pdf
+```
 
-- problem context
-- technical challenges
-- architecture and integration decisions
-- responsibilities
-- reliability concerns
-- lessons and engineering trade-offs
+Place the final reviewed PDFs at these exact paths. Until then, résumé actions remain visibly unavailable rather than linking to a missing file.
 
-## Contact
+## WordPress transition
 
-[GitHub](https://github.com/luisTrivinh0) · [LinkedIn](https://www.linkedin.com/in/lu%C3%ADs-trivinho-897942224/) · [Email](mailto:luis.trivinho@icloud.com)
+The previous WordPress portfolio is a legacy-content source only. Before retirement:
+
+1. Deploy this portfolio to Vercel and confirm its final domain.
+2. Update LinkedIn, GitHub, résumé files and older public profiles.
+3. Redirect or link the old WordPress site to the new portfolio during a transition period.
+4. Confirm useful public material has been curated before considering removal.
+
+The `/archive` route contains only verified earlier technical work and does not hotlink WordPress assets or pages.
+
+## Design and accessibility
+
+The internal direction, **Engineering Control Surface**, uses a dark-first graphite palette, subtle technical grid, restrained cyan/violet accents and code-native diagrams. A complete light theme is included. Navigation is semantic and keyboard-accessible, focus remains visible, the command palette supports `Cmd/Ctrl + K`, and motion respects `prefers-reduced-motion`.
+
+The generated visual reference used during implementation is kept outside the public site at `design/engineering-control-surface-concept.png` for design traceability. It is a composition reference, not a source of factual portfolio content.
+
+## Performance and deployment
+
+The site uses Server Components by default, statically generates all case-study routes and avoids external APIs for primary content. It targets Vercel and can also run anywhere that supports the standard Next.js build/start lifecycle.
+
+## Confidentiality
+
+This repository demonstrates engineering decisions without exposing proprietary code, credentials, internal infrastructure, customer information or confidential implementation details.
