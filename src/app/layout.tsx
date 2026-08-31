@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import Script from "next/script";
-import { headers } from "next/headers";
 import { CommandPalette } from "@/components/ui/CommandPalette";
 import { Header } from "@/components/layout/Header";
 import { profile } from "@/data/profile";
 import { siteUrl } from "@/lib/site";
-import { contentFor } from "@/data/portfolio";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -34,25 +32,27 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg" },
 };
 
+const languageScript = `(function(){try{document.documentElement.lang=location.pathname==='/pt-br/'||location.pathname.startsWith('/pt-br/')?'pt-BR':'en'}catch(e){}})()`;
 const themeScript = `(function(){try{var s=localStorage.getItem('theme');var t=s||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t}catch(e){}})()`;
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const locale =
-    (await headers()).get("x-portfolio-locale") === "pt-br" ? "pt-br" : "en";
-  const copy = contentFor(locale);
   const person = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: profile.name,
-    jobTitle: copy.role,
+    jobTitle: profile.role,
     url: siteUrl,
     sameAs: [profile.socials.github, profile.socials.linkedin],
   };
+
   return (
-    <html lang={locale === "pt-br" ? "pt-BR" : "en"} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
+        <Script id="language-init" strategy="beforeInteractive">
+          {languageScript}
+        </Script>
         <Script id="theme-init" strategy="beforeInteractive">
           {themeScript}
         </Script>
