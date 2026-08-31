@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { caseStudies } from "@/data/cases";
-import { contentFor } from "@/data/portfolio";
 import { readCaseStudy } from "@/lib/case-studies";
 import type { Locale } from "@/lib/i18n";
 import { ProjectDiagram } from "@/components/visualizations/ProjectDiagram";
@@ -17,7 +16,6 @@ export function CaseStudyPage({
 }) {
   const study = readCaseStudy(slug, locale);
   if (!study) notFound();
-  const copy = contentFor(locale);
   const prefix = locale === "pt-br" ? "/pt-br" : "";
   const index = caseStudies.findIndex((entry) => entry.slug === slug);
   const next = caseStudies[(index + 1) % caseStudies.length];
