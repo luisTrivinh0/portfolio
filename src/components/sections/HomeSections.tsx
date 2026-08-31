@@ -319,9 +319,15 @@ export function ResumeSection({ locale }: { locale: Locale }) {
         {key === "en" ? copy.resume.english : copy.resume.portuguese} ↗
       </a>
     ) : (
-      <span className="mono inline-flex min-h-[2.9rem] max-w-full items-center rounded border border-[var(--border)] px-4 py-3 text-xs leading-5 text-[var(--muted)]">
-        {key === "en" ? copy.resume.english : copy.resume.portuguese} ·{" "}
-        {copy.resume.unavailable}
+      <span
+        className="button max-w-full cursor-not-allowed opacity-60"
+        aria-disabled="true"
+        title={copy.resume.unavailable}
+      >
+        {key === "en" ? copy.resume.english : copy.resume.portuguese}
+        <span className="text-[.62rem] font-normal tracking-[.12em] text-[var(--muted)] uppercase">
+          PDF
+        </span>
       </span>
     );
   return (
