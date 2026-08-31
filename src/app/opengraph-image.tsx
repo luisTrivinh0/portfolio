@@ -41,7 +41,7 @@ export default function OpenGraphImage() {
             BRA · UTC-3 · Remote
           </div>
         </div>
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 82, letterSpacing: -4, fontWeight: 650 }}>
             Luís Trivinho
           </div>
