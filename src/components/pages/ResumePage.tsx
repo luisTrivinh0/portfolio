@@ -33,20 +33,18 @@ export function ResumePage({ locale }: { locale: Locale }) {
               <a
                 className="button button-primary"
                 href={resumeFiles.en}
-                target="_blank"
-                rel="noreferrer"
+                download="Luis-Trivinho-Resume-EN.pdf"
               >
-                {copy.resume.english} ↗
+                {copy.resume.english} ↓
               </a>
             ) : null}
             {files["pt-br"] ? (
               <a
                 className="button"
                 href={resumeFiles["pt-br"]}
-                target="_blank"
-                rel="noreferrer"
+                download="Luis-Trivinho-Curriculo-PTBR.pdf"
               >
-                {copy.resume.portuguese} ↗
+                {copy.resume.portuguese} ↓
               </a>
             ) : null}
           </div>
