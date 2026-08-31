@@ -313,10 +313,13 @@ export function ResumeSection({ locale }: { locale: Locale }) {
       <a
         className={`button ${primaryButton ? "button-primary" : ""}`}
         href={resumeFiles[key]}
-        target="_blank"
-        rel="noreferrer"
+        download={
+          key === "en"
+            ? "Luis-Trivinho-Resume-EN.pdf"
+            : "Luis-Trivinho-Curriculo-PTBR.pdf"
+        }
       >
-        {key === "en" ? copy.resume.english : copy.resume.portuguese} ↗
+        {key === "en" ? copy.resume.english : copy.resume.portuguese} ↓
       </a>
     ) : (
       <span
