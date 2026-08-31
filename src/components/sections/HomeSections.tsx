@@ -319,21 +319,27 @@ export function ResumeSection({ locale }: { locale: Locale }) {
         {key === "en" ? copy.resume.english : copy.resume.portuguese} ↗
       </a>
     ) : (
-      <span className="mono inline-flex min-h-[2.9rem] items-center rounded border border-[var(--border)] px-4 text-xs text-[var(--muted)]">
-        {key === "en" ? copy.resume.english : copy.resume.portuguese} ·{" "}
-        {copy.resume.unavailable}
+      <span
+        className="button max-w-full cursor-not-allowed opacity-60"
+        aria-disabled="true"
+        title={copy.resume.unavailable}
+      >
+        {key === "en" ? copy.resume.english : copy.resume.portuguese}
+        <span className="text-[.62rem] font-normal tracking-[.12em] text-[var(--muted)] uppercase">
+          PDF
+        </span>
       </span>
     );
   return (
     <section className="container pb-8">
-      <div className="panel grid gap-7 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-end">
+      <div className="panel grid gap-8 p-7 sm:p-10 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)] lg:items-end">
         <div>
           <p className="section-label">{copy.resume.label}</p>
           <h2 className="max-w-2xl text-3xl tracking-[-.04em] sm:text-4xl">
             {copy.resume.title}
           </h2>
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex min-w-0 flex-wrap gap-3 lg:justify-end">
           {button(primary, true)}
           {button(secondary, false)}
           <Link href={`${prefix}/resume`} className="button">
