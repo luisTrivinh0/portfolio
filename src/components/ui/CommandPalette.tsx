@@ -49,7 +49,7 @@ export function CommandPalette() {
     const action = actions[index];
     if (action.external)
       window.open(action.href, "_blank", "noopener,noreferrer");
-    else window.location.href = action.href;
+    else window.location.assign(action.href);
     setOpen(false);
   };
   const keydown = (event: React.KeyboardEvent) => {
