@@ -1,12 +1,16 @@
+"use client";
+
 import Link from "next/link";
-import { headers } from "next/headers";
+import { usePathname } from "next/navigation";
 import { contentFor } from "@/data/portfolio";
 
-export default async function NotFound() {
+export default function NotFound() {
+  const pathname = usePathname() || "/";
   const locale =
-    (await headers()).get("x-portfolio-locale") === "pt-br" ? "pt-br" : "en";
+    pathname === "/pt-br" || pathname.startsWith("/pt-br/") ? "pt-br" : "en";
   const copy = contentFor(locale).notFound;
-  const home = locale === "pt-br" ? "/pt-br" : "/";
+  const home = locale === "pt-br" ? "/pt-br/" : "/";
+
   return (
     <main
       id="main-content"
