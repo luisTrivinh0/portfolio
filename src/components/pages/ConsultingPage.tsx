@@ -37,7 +37,7 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
           <div className="panel overflow-hidden p-3 sm:p-4">
             <div className="relative aspect-[2/3] overflow-hidden rounded-[calc(var(--radius)-.25rem)] bg-[var(--surface-elevated)]">
               <Image
-                src="/consultoria/luis-trivinho.jpg"
+                src="/consultoria/luis-trivinho.webp"
                 alt={copy.imageAlt}
                 fill
                 priority
