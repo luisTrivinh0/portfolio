@@ -93,7 +93,7 @@ export const consultingContent = {
       },
       {
         code: "03",
-        title: "Legal technology & technical expert analysis",
+        title: "Legal technology, technical assistance & independent analysis",
         description:
           "Independent technical support for disputes and investigations involving software, integrations, digital evidence, transactions or system behavior.",
         items: [
@@ -102,6 +102,7 @@ export const consultingContent = {
           "Technical review of digital evidence",
           "Technical opinions and structured findings",
           "Technical support for lawyers and law firms",
+          "Technical support for drafting and reviewing expert questions",
         ],
         fit: "For legal teams that need a technical reading of what actually happened inside a system.",
       },
@@ -203,7 +204,7 @@ export const consultingContent = {
       },
       {
         code: "03",
-        title: "Tecnologia para o jurídico e perícia técnica",
+        title: "Tecnologia para o jurídico, assistência e análise técnica",
         description:
           "Apoio técnico independente em demandas e investigações envolvendo software, integrações, evidências digitais, transações ou comportamento de sistemas.",
         items: [
@@ -212,6 +213,7 @@ export const consultingContent = {
           "Revisão técnica de evidências digitais",
           "Pareceres técnicos e achados estruturados",
           "Apoio técnico a advogados e escritórios",
+          "Apoio técnico na elaboração e revisão de quesitos",
         ],
         fit: "Para equipes jurídicas que precisam de uma leitura técnica do que realmente aconteceu dentro de um sistema.",
       },
