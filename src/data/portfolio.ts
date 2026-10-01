@@ -18,6 +18,7 @@ export const portfolioContent = {
     navigation: [
       { label: "Work", href: "#work" },
       { label: "Experience", href: "#experience" },
+      { label: "Consulting", href: "/consulting" },
       { label: "About", href: "#about" },
       { label: "Résumé", href: "/resume" },
       { label: "Contact", href: "#contact" },
@@ -116,6 +117,7 @@ export const portfolioContent = {
     navigation: [
       { label: "Trabalhos", href: "#work" },
       { label: "Experiência", href: "#experience" },
+      { label: "Consultoria", href: "/consultoria" },
       { label: "Sobre", href: "#about" },
       { label: "Currículo", href: "/resume" },
       { label: "Contato", href: "#contact" },
