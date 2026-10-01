@@ -7,6 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: siteUrl, changeFrequency: "monthly", priority: 1 },
     { url: `${siteUrl}/pt-br`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteUrl}/consulting`, changeFrequency: "monthly", priority: 0.9 },
+    {
+      url: `${siteUrl}/pt-br/consultoria`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
     { url: `${siteUrl}/archive`, changeFrequency: "yearly", priority: 0.5 },
     {
       url: `${siteUrl}/pt-br/archive`,
