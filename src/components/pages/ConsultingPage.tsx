@@ -8,8 +8,8 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
   const copy = consultingContentFor(locale);
   const subject =
     locale === "pt-br"
-      ? "Consultoria — IA, Finanças ou Perícia Técnica"
-      : "Consulting — AI, Finance or Technical Expert Analysis";
+      ? "Consultoria — IA, Finanças ou Assistência Técnica"
+      : "Consulting — AI, Finance or Technical Assistance";
   const contactHref = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}`;
 
   return (
@@ -52,7 +52,9 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
                   {copy.profileTitle}
                 </div>
                 <div className="mono mt-3 text-xs text-white/65">
-                  IA · Finanças · Perícia técnica
+                  {locale === "pt-br"
+                    ? "IA · Finanças · Assistência técnica"
+                    : "AI · Finance · Technical assistance"}
                 </div>
               </div>
             </div>
