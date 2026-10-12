@@ -3,6 +3,8 @@ export type Locale = (typeof locales)[number];
 
 const localizedRoutes = [
   { en: "/consulting", "pt-br": "/consultoria" },
+  { en: "/services", "pt-br": "/servicos" },
+  { en: "/contact", "pt-br": "/contato" },
 ] as const;
 
 export function isLocale(value: string): value is Locale {

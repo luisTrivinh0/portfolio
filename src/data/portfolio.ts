@@ -17,11 +17,11 @@ export const portfolioContent = {
   en: {
     navigation: [
       { label: "Work", href: "#work" },
-      { label: "Experience", href: "#experience" },
+      { label: "Services", href: "/services" },
       { label: "Consulting", href: "/consulting" },
       { label: "About", href: "#about" },
       { label: "Résumé", href: "/resume" },
-      { label: "Contact", href: "#contact" },
+      { label: "Contact", href: "/contact" },
     ],
     availability: "Available for international opportunities",
     role: "Senior Software Engineer",
@@ -116,11 +116,11 @@ export const portfolioContent = {
   "pt-br": {
     navigation: [
       { label: "Trabalhos", href: "#work" },
-      { label: "Experiência", href: "#experience" },
+      { label: "Serviços", href: "/servicos" },
       { label: "Consultoria", href: "/consultoria" },
       { label: "Sobre", href: "#about" },
       { label: "Currículo", href: "/resume" },
-      { label: "Contato", href: "#contact" },
+      { label: "Contato", href: "/contato" },
     ],
     availability: "Disponível para oportunidades internacionais",
     role: "Engenheiro de Software Sênior",

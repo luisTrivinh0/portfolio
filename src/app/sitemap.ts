@@ -8,6 +8,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, changeFrequency: "monthly", priority: 1 },
     { url: `${siteUrl}/pt-br`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${siteUrl}/consulting`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${siteUrl}/services`, changeFrequency: "monthly", priority: 0.9 },
+    {
+      url: `${siteUrl}/pt-br/servicos`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    { url: `${siteUrl}/contact`, changeFrequency: "monthly", priority: 0.8 },
+    {
+      url: `${siteUrl}/pt-br/contato`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
     {
       url: `${siteUrl}/pt-br/consultoria`,
       changeFrequency: "monthly",

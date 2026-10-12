@@ -1,16 +1,11 @@
 import { Footer } from "@/components/layout/Footer";
 import { consultingContentFor } from "@/data/consulting";
-import { profile } from "@/data/profile";
-import type { Locale } from "@/lib/i18n";
+import { localizePath, type Locale } from "@/lib/i18n";
 import Image from "next/image";
 
 export function ConsultingPage({ locale }: { locale: Locale }) {
   const copy = consultingContentFor(locale);
-  const subject =
-    locale === "pt-br"
-      ? "Consultoria — IA, Finanças ou Assistência Técnica"
-      : "Consulting — AI, Finance or Technical Assistance";
-  const contactHref = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}`;
+  const contactHref = localizePath("/contact", locale);
 
   return (
     <>
@@ -86,8 +81,13 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
 
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {copy.services.map((service) => (
-              <article key={service.code} className="panel flex h-full flex-col p-6 sm:p-7">
-                <div className="mono text-xs text-[var(--accent)]">{service.code}</div>
+              <article
+                key={service.code}
+                className="panel flex h-full flex-col p-6 sm:p-7"
+              >
+                <div className="mono text-xs text-[var(--accent)]">
+                  {service.code}
+                </div>
                 <h3 className="mt-5 text-2xl font-semibold tracking-[-.035em]">
                   {service.title}
                 </h3>
@@ -100,7 +100,9 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
                       key={item}
                       className="flex gap-3 text-sm leading-6 text-[var(--muted-strong)]"
                     >
-                      <span className="mono mt-[.05rem] text-[var(--accent)]">↳</span>
+                      <span className="mono mt-[.05rem] text-[var(--accent)]">
+                        ↳
+                      </span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -123,7 +125,9 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
                   <span className="mono text-xs text-[var(--accent)]">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <p className="mt-5 leading-7 text-[var(--muted-strong)]">{scenario}</p>
+                  <p className="mt-5 leading-7 text-[var(--muted-strong)]">
+                    {scenario}
+                  </p>
                 </div>
               ))}
             </div>
@@ -136,7 +140,9 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {copy.process.map((step) => (
               <article key={step.code} className="panel p-6">
-                <div className="mono text-xs text-[var(--accent)]">{step.code}</div>
+                <div className="mono text-xs text-[var(--accent)]">
+                  {step.code}
+                </div>
                 <h3 className="mt-6 text-xl font-semibold">{step.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted-strong)]">
                   {step.description}
@@ -162,7 +168,10 @@ export function ConsultingPage({ locale }: { locale: Locale }) {
                 </p>
               </div>
               <div className="lg:justify-self-end">
-                <a className="button button-primary w-full sm:w-auto" href={contactHref}>
+                <a
+                  className="button button-primary w-full sm:w-auto"
+                  href={contactHref}
+                >
                   {copy.contactButton} <span>→</span>
                 </a>
                 <p className="mono mt-4 max-w-sm text-[.68rem] leading-5 text-[var(--muted)]">
